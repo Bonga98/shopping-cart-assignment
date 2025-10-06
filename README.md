@@ -13,16 +13,27 @@ Cart handles business logic (add/update items, calculate totals).
 
 CartItem represents individual items in the cart.
 
-Improved Data Handling:
+Implementation Choices
 ------------------------------
+
+REST Controller: Exposes simple endpoints (/addItem, /getTotal) using Spring annotations for clean API design.
+
+In-memory Map for carts: Efficiently stores and retrieves carts by cartId; simple and fast for demonstration.
+
+computeIfAbsent: Automatically creates a cart if it doesn’t exist
+
+CartItem design: Immutable name and price; mutable quantity  for easy quantity updates.
+
+Cart design: Aggregates items, updates quantities, and calculates totals with BigDecimal for financial accuracy.
+
+Separation of concerns: Clear division between ShoppingCartController, Cart, and CartItem.
+
+Maintainable and scalable: Modular structure allows easy extension, testing, and future integration.
 
 Replaced unsafe double with BigDecimal for monetary calculations.
 
 I kept HashMap to store carts and items because it provides fast O(1) lookups and updates, 
 which is ideal for quickly adding items, updating quantities, and calculating totals
 
-Cleaner Code:
-
 Removed duplicate total-calculation logic by adding Cart.calculateTotal().
 
-Each class is in its own file to demonstrate separation and maintainability.
