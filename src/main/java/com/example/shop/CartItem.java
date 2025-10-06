@@ -1,3 +1,4 @@
+package com.example.shop;
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -25,3 +26,4 @@ class CartItem {
     public BigDecimal getPrice() { return price; }
     public int getQuantity() { return quantity; }
 }
+
