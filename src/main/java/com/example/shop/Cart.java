@@ -1,5 +1,8 @@
+package com.example.shop;
 import java.math.BigDecimal;
-import java.util.
+import java.util.HashMap;
+import java.util.Map;
+
 
 //Represents a shopping cart
 class Cart {
@@ -19,4 +22,5 @@ class Cart {
                 .map(CartItem::getTotal)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
+
 }
